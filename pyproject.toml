@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Live reload for Python apps"
 authors = ["Skyascii <savioxavier112@gmail.com>"]
 license = "MIT"
+readme = "README.md"
 packages = [
     { include = "python_observer/**/*.py" }
 ]
