@@ -11,11 +11,8 @@ def get_python_version():
     )
 
 
-def run_file(file_path, args=None):
-    cmd = [sys.executable, file_path]
-
-    if args is not None:
-        cmd += args.split()  # split the arguments string into a list
+def run_file(command):
+    cmd = [sys.executable, *command]
 
     return subprocess.run(cmd)
 

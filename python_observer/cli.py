@@ -12,17 +12,27 @@ def main():
     # sourcery skip: extract-method
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("file", help="path to the file to watch")
+    parser.add_argument("script", help="the file to watch", type=str)
+    parser.add_argument(
+        "script_args",
+        nargs=argparse.REMAINDER,
+        help="additional arguments for the above file",
+    )
 
     args = parser.parse_args()
 
+    if not args.script:
+        parser.print_help()
+
     try:
-        if file_exists(args.file):
-            file_path = args.file
+        command = [args.script] + args.script_args
+
+        if file_exists(args.script):
+            file_path = args.script
         else:
             print(
                 observer_message(
-                    f"[red]Error: File {args.file} does not exist", style="red"
+                    f"[red]Error: File {args.script} does not exist", style="red"
                 ),
                 highlight=False,
             )
@@ -48,7 +58,7 @@ def main():
 
         session_start_time = get_monotonic_time(as_seconds=True, should_round=False)
 
-        watch_file(file_path)
+        watch_file(command, file_path=args.script)
     except KeyboardInterrupt:
         session_end_time = get_monotonic_time(as_seconds=True, should_round=False)
         newline()

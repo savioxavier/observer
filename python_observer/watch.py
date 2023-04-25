@@ -7,7 +7,7 @@ from .display import observer_message, print_both_sides, print_line
 from .misc import resolve_path, run_file
 
 
-def watch_file(file_path):
+def watch_file(command, file_path):
     def draw_process_lines(is_rerun=True):
         if is_rerun:
             last_save_text = f"{DOT_CHAR} [blue]since last save: [/blue]{format_time(end_save_time - start_save_time)}"
@@ -37,7 +37,7 @@ def watch_file(file_path):
     start_time = get_monotonic_time()
 
     # first run
-    process = run_file(file_path)
+    process = run_file(command)
 
     end_time = get_monotonic_time()
 
@@ -69,7 +69,7 @@ def watch_file(file_path):
             start_time = get_monotonic_time()
 
             # run the file
-            process = run_file(file_path)
+            process = run_file(command)
 
             end_time = get_monotonic_time()
 
