@@ -17,9 +17,6 @@ def main():
         def print_help(self):
             description = ":sparkles: Live reload for Python apps"
 
-            args_list = []
-            args_help_list = []
-
             help_table = Table(
                 show_header=False,
                 safe_box=False,
@@ -28,20 +25,23 @@ def main():
                 border_style="yellow",
             )
 
-            for action in self._actions:
-                if action.dest != "help":
-                    args_list.append(f"[green]{action.dest}[/]")
-                    args_help_list.append(action.help)
-
-            for option, option_help in zip(args_help_list, args_list):
-                help_table.add_row(option_help, option)
-
             pyprint(
                 boxen(
-                    f"[bold][dim]{description}[/]",
-                    "\n",
-                    "[bold yellow]ARGS[/bold yellow]",
-                    help_table,
+                    cleandoc(
+                        f"""
+                        [bold][dim]{description}[/dim][/bold]
+
+                        [bold][yellow]USAGE[/bold][/yellow]
+
+                            [blue]observer [green]\[file][/green][/blue]
+
+                        [bold][yellow]ARGS[/bold][/yellow]
+
+                            [magenta]file[/magenta]    The source file to watch.
+                                    [dim]Optional arguments for the file can be
+                                    [dim]appended at the end of the file name
+                        """
+                    ),
                     style="rounded",
                     padding=1,
                     margin=1,
