@@ -37,9 +37,13 @@ def main():
 
                         [bold][yellow]ARGS[/yellow][/bold]
 
-                            [magenta]file[/magenta]    The source file to watch.
-                                    [dim]Optional arguments for the file can be[/dim]
-                                    [dim]appended at the end of the file name[/dim]
+                            [magenta]file[/magenta]       The source file to watch.
+                                       [dim]Optional arguments for the file can be[/dim]
+                                       [dim]appended at the end of the file name[/dim]
+
+                        [bold][yellow]OPTIONS[/yellow][/bold]
+
+                            [green]-h, --help[/green] Show this help message
                         """
                     ),
                     style="rounded",
