@@ -17,14 +17,6 @@ def main():
         def print_help(self):
             description = ":sparkles: Live reload for Python apps"
 
-            help_table = Table(
-                show_header=False,
-                safe_box=False,
-                box=box.SIMPLE_HEAD,
-                show_lines=True,
-                border_style="yellow",
-            )
-
             pyprint(
                 boxen(
                     cleandoc(
