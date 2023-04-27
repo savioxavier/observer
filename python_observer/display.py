@@ -3,7 +3,8 @@ from rich.table import Table
 from .constants import DOT_CHAR
 
 console = Console()
-rich_print = console.print
+rich_print = console.print # Rich variant
+pyprint = print # Python variant
 
 
 def newline():

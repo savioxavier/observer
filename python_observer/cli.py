@@ -1,22 +1,64 @@
 import argparse
+from inspect import cleandoc
+from rich.table import Table
+from rich import box
+from pyboxen import boxen
 
 from .constants import DOT_CHAR
 from .date import format_time, get_current_time, get_monotonic_time
 from .display import newline, observer_message, print_both_sides, print_line
-from .display import rich_print as print
+from .display import rich_print as print, pyprint
 from .misc import file_exists, get_python_version
 from .watch import watch_file
 
 
 def main():
-    # sourcery skip: extract-method
-    parser = argparse.ArgumentParser()
+    class ObserverArgumentParser(argparse.ArgumentParser):
+        def print_help(self):
+            description = ":sparkles: Live reload for Python apps"
 
-    parser.add_argument("script", help="the file to watch", type=str)
+            args_list = []
+            args_help_list = []
+
+            help_table = Table(
+                show_header=False,
+                safe_box=False,
+                box=box.SIMPLE_HEAD,
+                show_lines=True,
+                border_style="yellow",
+            )
+
+            for action in self._actions:
+                if action.dest != "help":
+                    args_list.append(f"[green]{action.dest}[/]")
+                    args_help_list.append(action.help)
+
+            for option, option_help in zip(args_help_list, args_list):
+                help_table.add_row(option_help, option)
+
+            pyprint(
+                boxen(
+                    f"[bold][dim]{description}[/]",
+                    "\n",
+                    "[bold yellow]ARGS[/bold yellow]",
+                    help_table,
+                    style="rounded",
+                    padding=1,
+                    margin=1,
+                    title="[bold][green]:eyes: observer[/]",
+                    title_alignment="center",
+                    color="cyan",
+                )
+            )
+
+    # sourcery skip: extract-method
+    parser = ObserverArgumentParser()
+
+    parser.add_argument("script", help="the file to watch (required)", type=str)
     parser.add_argument(
         "script_args",
         nargs=argparse.REMAINDER,
-        help="additional arguments for the above file",
+        help="additional arguments for the above file (optional)",
     )
 
     args = parser.parse_args()

@@ -11,8 +11,9 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-rich = "^13.3.4"
+rich = ">=12.5.1"
 humanfriendly = "^10.0"
+pyboxen = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 
