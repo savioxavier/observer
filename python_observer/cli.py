@@ -29,7 +29,8 @@ def main():
 
                         [bold][yellow]ARGS[/yellow][/bold]
 
-                            [magenta]file[/magenta]            The source file to watch.
+                            [magenta]file[/magenta]            The source file to watch
+                                            [dim]Defaults to [blue]main.py[/blue] if not specified[/dim]
                                             [dim]Optional arguments for the file can be[/dim]
                                             [dim]appended at the end of the file name[/dim]
 
@@ -51,11 +52,17 @@ def main():
     # sourcery skip: extract-method
     parser = ObserverArgumentParser()
 
-    parser.add_argument("script", help="the file to watch (required)", type=str)
+    parser.add_argument(
+        "script",
+        help="the file to watch",
+        nargs=argparse.OPTIONAL,
+        type=str,
+        default="main.py",
+    )
     parser.add_argument(
         "script_args",
         nargs=argparse.REMAINDER,
-        help="additional arguments for the above file (optional)",
+        help="additional arguments for the above file",
     )
     parser.add_argument(
         "-v",
