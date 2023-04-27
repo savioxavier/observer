@@ -1,3 +1,4 @@
+import tomli
 import subprocess
 import sys
 from pathlib import Path
@@ -9,6 +10,13 @@ def get_python_version():
         .strip()
         .decode("utf-8")
     )
+
+
+def get_observer_version():
+    with open("pyproject.toml", "r") as f:
+        toml_data = tomli.loads(f.read())
+
+    return toml_data["tool"]["poetry"]["version"]
 
 
 def run_file(command):
