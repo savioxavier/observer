@@ -31,15 +31,15 @@ def main():
                         f"""
                         [bold][dim]{description}[/dim][/bold]
 
-                        [bold][yellow]USAGE[/bold][/yellow]
+                        [bold][yellow]USAGE[/yellow][/bold]
 
-                            [blue]observer [green]\[file][/green][/blue]
+                            [blue]observer[/blue] [green]\[file][/green]
 
-                        [bold][yellow]ARGS[/bold][/yellow]
+                        [bold][yellow]ARGS[/yellow][/bold]
 
                             [magenta]file[/magenta]    The source file to watch.
-                                    [dim]Optional arguments for the file can be
-                                    [dim]appended at the end of the file name
+                                    [dim]Optional arguments for the file can be[/dim]
+                                    [dim]appended at the end of the file name[/dim]
                         """
                     ),
                     style="rounded",
