@@ -7,8 +7,8 @@ from pyboxen import boxen
 from .constants import DOT_CHAR
 from .date import format_time, get_current_time, get_monotonic_time
 from .display import newline, observer_message, print_both_sides, print_line
-from .display import rich_print as print, pyprint
-from .misc import file_exists, get_python_version
+from .display import rich_print as print, pyprint, render_rich_text
+from .misc import file_exists, get_python_version, get_observer_version
 from .watch import watch_file
 
 
@@ -37,19 +37,20 @@ def main():
 
                         [bold][yellow]ARGS[/yellow][/bold]
 
-                            [magenta]file[/magenta]       The source file to watch.
-                                       [dim]Optional arguments for the file can be[/dim]
-                                       [dim]appended at the end of the file name[/dim]
+                            [magenta]file[/magenta]            The source file to watch.
+                                            [dim]Optional arguments for the file can be[/dim]
+                                            [dim]appended at the end of the file name[/dim]
 
                         [bold][yellow]OPTIONS[/yellow][/bold]
 
-                            [green]-h, --help[/green] Show this help message
+                            [green]-h, --help[/green]      Show this help message
+                            [green]-v, --version[/green]   Show version information
                         """
                     ),
                     style="rounded",
                     padding=1,
                     margin=1,
-                    title="[bold][green]:eyes: observer[/]",
+                    title="[bold][green]:eyes: observer[/green]",
                     title_alignment="center",
                     color="cyan",
                 )
@@ -63,6 +64,15 @@ def main():
         "script_args",
         nargs=argparse.REMAINDER,
         help="additional arguments for the above file (optional)",
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        help="Get current version",
+        action="version",
+        version=render_rich_text(
+            f"[green]observer version[/green] [yellow]v{get_observer_version()}[/yellow]"
+        ),
     )
 
     args = parser.parse_args()

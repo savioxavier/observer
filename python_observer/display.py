@@ -3,8 +3,8 @@ from rich.table import Table
 from .constants import DOT_CHAR
 
 console = Console()
-rich_print = console.print # Rich variant
-pyprint = print # Python variant
+rich_print = console.print  # Rich variant
+pyprint = print  # Python variant
 
 
 def newline():
@@ -18,6 +18,13 @@ def print_both_sides(left, right):
     grid.add_row(left, right)
 
     rich_print(grid)
+
+
+def render_rich_text(text, highlight=False):
+    with console.capture() as capture:
+        rich_print(text, highlight=highlight)
+
+    return capture.get()
 
 
 def print_line(rule_style="dim green", char="─"):
