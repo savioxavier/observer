@@ -25,7 +25,7 @@ def main():
 
                         [bold][yellow]USAGE[/yellow][/bold]
 
-                            [blue]observer[/blue] [green]\[file][/green]
+                            [blue]observer[/blue] [magenta]\[file][/magenta]
 
                         [bold][yellow]ARGS[/yellow][/bold]
 
