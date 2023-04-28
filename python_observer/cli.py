@@ -38,6 +38,14 @@ def main():
 
                             [green]-h, --help[/green]      Show this help message
                             [green]-v, --version[/green]   Show version information
+
+                        [bold][yellow]SOURCE CODE[/yellow][/bold]
+
+                            🔗 [blue]https://github.com/savioxavier/observer[/blue]
+
+                        [bold][yellow]DONATE[/yellow][/bold]
+
+                            💖 [red]https://www.buymeacoffee.com/savioxavier[/red]
                         """
                     ),
                     style="rounded",
