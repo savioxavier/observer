@@ -14,7 +14,7 @@ from .display import (
     render_rich_text,
 )
 from .display import rich_print as print
-from .misc import file_exists, get_observer_version, get_python_version
+from .misc import check_for_errors, get_observer_version, get_python_version
 from .watch import watch_file
 
 
@@ -95,16 +95,13 @@ def main():
     try:
         command = [args.script] + args.script_args
 
-        if file_exists(args.script):
-            file_path = args.script
-        else:
-            print(
-                observer_message(
-                    f"[red]Error: File {args.script} does not exist", style="red"
-                ),
-                highlight=False,
-            )
-            exit()
+        check_for_errors(args.script)
+
+        # check_for_errors automatically exits if a file-related error occurs
+        # If above check_for_errors yields nothing, then we're good to go
+        # and we can assign file path as args.script
+
+        file_path = args.script
 
         newline()
 

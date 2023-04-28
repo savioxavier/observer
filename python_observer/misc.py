@@ -4,6 +4,8 @@ from pathlib import Path
 
 import tomli
 
+from .display import print_observer_error
+
 
 def get_python_version():
     return (
@@ -30,5 +32,16 @@ def resolve_path(path):
     return Path(path).resolve()
 
 
-def file_exists(file_path):
-    return Path(file_path).is_file()
+def check_for_errors(file_path):
+    path = Path(file_path)
+
+    errors = {
+        # fmt: off
+        not path.is_file():     f"'{file_path}' does not exist",
+        path.is_dir():          f"'{file_path}' is a directory, expected a file",
+        # fmt: on
+    }
+
+    for condition, message in errors.items():
+        if condition:
+            print_observer_error(message)

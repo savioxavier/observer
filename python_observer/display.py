@@ -1,3 +1,4 @@
+import sys
 from rich.console import Console
 from rich.table import Table
 
@@ -34,3 +35,10 @@ def print_line(rule_style="dim green", char="─"):
 
 def observer_message(message, style="yellow"):
     return f"[{style}]observer[/{style}] [dim]{DOT_CHAR}[/dim] {message}"
+
+
+def print_observer_error(message, style="red"):
+    rich_print(
+        f"[{style}]observer error[/{style}] [dim]{DOT_CHAR}[/dim] [red]{message}[/red]"
+    )
+    sys.exit(1)
