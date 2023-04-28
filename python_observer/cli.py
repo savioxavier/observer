@@ -1,14 +1,20 @@
 import argparse
 from inspect import cleandoc
-from rich.table import Table
-from rich import box
+
 from pyboxen import boxen
 
 from .constants import DOT_CHAR
 from .date import format_time, get_current_time, get_monotonic_time
-from .display import newline, observer_message, print_both_sides, print_line
-from .display import rich_print as print, pyprint, render_rich_text
-from .misc import file_exists, get_python_version, get_observer_version
+from .display import (
+    newline,
+    observer_message,
+    print_both_sides,
+    print_line,
+    pyprint,
+    render_rich_text,
+)
+from .display import rich_print as print
+from .misc import file_exists, get_observer_version, get_python_version
 from .watch import watch_file
 
 
@@ -57,7 +63,6 @@ def main():
                 )
             )
 
-    # sourcery skip: extract-method
     parser = ObserverArgumentParser()
 
     parser.add_argument(

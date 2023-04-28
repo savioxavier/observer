@@ -1,7 +1,8 @@
-import tomli
 import subprocess
 import sys
 from pathlib import Path
+
+import tomli
 
 
 def get_python_version():

@@ -1,5 +1,6 @@
 from rich.console import Console
 from rich.table import Table
+
 from .constants import DOT_CHAR
 
 console = Console()
