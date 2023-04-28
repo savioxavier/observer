@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-observer"
-version = "0.3.0"
+version = "0.3.1"
 description = "Live reload for Python apps"
 authors = ["Skyascii <savioxavier112@gmail.com>"]
 license = "MIT"
