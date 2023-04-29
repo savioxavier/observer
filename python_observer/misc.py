@@ -1,10 +1,8 @@
-import os
 import subprocess
 import sys
 from pathlib import Path
 
-import tomli
-
+from .__init__ import __version__
 from .display import print_observer_error
 
 
@@ -17,10 +15,7 @@ def get_python_version():
 
 
 def get_observer_version():
-    sys.path.insert(0, os.path.abspath(".."))
-
-    with open("../pyproject.toml", mode="rb") as pyproject:
-        return tomli.load(pyproject)["tool"]["poetry"]["version"]
+    return __version__
 
 
 def run_file(command):
