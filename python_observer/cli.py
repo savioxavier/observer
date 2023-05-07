@@ -47,11 +47,11 @@ def main():
 
                         [bold][yellow]SOURCE CODE[/yellow][/bold]
 
-                            🔗 [blue]https://github.com/savioxavier/observer[/blue]
+                            :link: [blue]https://github.com/savioxavier/observer[/blue]
 
                         [bold][yellow]DONATE[/yellow][/bold]
 
-                            💖 [red]https://www.buymeacoffee.com/savioxavier[/red]
+                            :sparkling_heart: [red]https://www.buymeacoffee.com/savioxavier[/red]
                         """
                     ),
                     style="rounded",
