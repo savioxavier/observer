@@ -14,7 +14,12 @@ from .display import (
     render_rich_text,
 )
 from .display import rich_print as print
-from .misc import check_for_errors, get_observer_version, get_python_version, get_path_basename
+from .misc import (
+    check_for_errors,
+    get_observer_version,
+    get_python_version,
+    get_path_basename,
+)
 from .watch import watch_file
 
 

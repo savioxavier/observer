@@ -10,7 +10,7 @@ from .misc import resolve_path, run_file
 def watch_file(command, file_path):
     def draw_process_lines(is_rerun=True):
         if is_rerun:
-            last_save_text = f"{DOT_CHAR} [blue]since last save: [/blue]{format_time(end_save_time - start_save_time)}"
+            last_save_text = f"{DOT_CHAR} [blue]since last save: [/blue]{format_time(end_save_time - start_save_time, compact=True)}"
         else:
             last_save_text = ""
 
