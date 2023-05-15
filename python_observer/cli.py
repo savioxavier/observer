@@ -47,11 +47,11 @@ def main():
 
                         [bold][yellow]SOURCE CODE[/yellow][/bold]
 
-                            :link: [blue]https://github.com/savioxavier/observer[/blue]
+                            [blue]:link: https://github.com/savioxavier/observer[/blue]
 
                         [bold][yellow]DONATE[/yellow][/bold]
 
-                            :sparkling_heart: [red]https://www.buymeacoffee.com/savioxavier[/red]
+                            [red]:sparkling_heart: https://www.buymeacoffee.com/savioxavier[/red]
                         """
                     ),
                     style="rounded",
@@ -107,14 +107,14 @@ def main():
 
         print_both_sides(
             left=observer_message("[magenta]A file system watcher for Python files[/]"),
-            right=f"[green]{get_current_time(time_format='%Y-%m-%d %I:%M:%S %p')} :watch:",
+            right=f"[green]{get_current_time(time_format='%Y-%m-%d %I:%M:%S %p')} :watch:[/green]",
         )
 
         print_both_sides(
             left=observer_message(
                 f"[green]watching file [blue]{file_path}[/blue] [dim]{DOT_CHAR}[/dim] [red]hit Ctrl + C to exit[/]"
             ),
-            right=f"[blue]{get_python_version()}[/blue] :snake:",
+            right=f"[blue]{get_python_version()} :snake:[/blue]",
         )
 
         newline()
@@ -133,7 +133,7 @@ def main():
             )
         )
         newline()
-        print(observer_message(":wave: [red]Goodbye![/]"))
+        print(observer_message("[red]:wave: Goodbye![/]"))
         newline()
         exit()
 
