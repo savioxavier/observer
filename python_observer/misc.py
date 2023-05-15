@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import platform
 from pathlib import Path
 
 from .__init__ import __version__
@@ -7,11 +8,7 @@ from .display import print_observer_error
 
 
 def get_python_version():
-    return (
-        subprocess.check_output(f"{sys.executable} --version", shell=True)
-        .strip()
-        .decode("utf-8")
-    )
+    return platform.python_version()
 
 
 def get_observer_version():

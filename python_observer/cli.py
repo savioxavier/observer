@@ -116,7 +116,7 @@ def main():
             left=observer_message(
                 f"[green]watching file [blue]{file_path_basename}[/blue] [dim]{DOT_CHAR}[/dim] [red]hit Ctrl + C to exit[/]"
             ),
-            right=f"[blue]{get_python_version()} :snake:[/blue]",
+            right=f"[blue]Python {get_python_version()} :snake:[/blue]",
         )
 
         newline()
