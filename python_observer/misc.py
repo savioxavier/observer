@@ -27,6 +27,8 @@ def run_file(command):
 def resolve_path(path):
     return Path(path).resolve()
 
+def get_path_basename(path):
+    return Path(path).name
 
 def check_for_errors(file_path):
     path = Path(file_path)

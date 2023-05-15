@@ -14,7 +14,7 @@ from .display import (
     render_rich_text,
 )
 from .display import rich_print as print
-from .misc import check_for_errors, get_observer_version, get_python_version
+from .misc import check_for_errors, get_observer_version, get_python_version, get_path_basename
 from .watch import watch_file
 
 
@@ -110,9 +110,11 @@ def main():
             right=f"[green]{get_current_time(time_format='%Y-%m-%d %I:%M:%S %p')} :watch:[/green]",
         )
 
+        file_path_basename = get_path_basename(file_path)
+
         print_both_sides(
             left=observer_message(
-                f"[green]watching file [blue]{file_path}[/blue] [dim]{DOT_CHAR}[/dim] [red]hit Ctrl + C to exit[/]"
+                f"[green]watching file [blue]{file_path_basename}[/blue] [dim]{DOT_CHAR}[/dim] [red]hit Ctrl + C to exit[/]"
             ),
             right=f"[blue]{get_python_version()} :snake:[/blue]",
         )
