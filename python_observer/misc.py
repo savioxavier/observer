@@ -18,7 +18,7 @@ def get_observer_version():
 def run_file(command):
     cmd = [sys.executable, *command]
 
-    return subprocess.run(cmd)
+    return subprocess.Popen(cmd)
 
 
 def resolve_path(path):

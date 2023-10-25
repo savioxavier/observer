@@ -37,7 +37,8 @@ def watch_file(command, file_path):
     start_time = get_monotonic_time()
 
     # first run
-    process = run_file(command)
+    process = run_file(command)  # process is now the Popen object
+    process.wait()  # Wait for the process to actually finish
 
     end_time = get_monotonic_time()
 
@@ -68,8 +69,8 @@ def watch_file(command, file_path):
 
             start_time = get_monotonic_time()
 
-            # run the file
-            process = run_file(command)
+            process = run_file(command)  # process is now the Popen object
+            process.wait()  # Wait for the process to actually finish
 
             end_time = get_monotonic_time()
 
